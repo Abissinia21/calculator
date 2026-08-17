@@ -87,3 +87,38 @@ buttons.forEach((name) => {
 
     calculator.appendChild(button);
 });
+document.addEventListener('keydown', (event) => {
+
+      if (event.key >= '0' && event.key <= '9') {
+        display.value += event.key;
+    }
+
+
+    else if (event.key === '+' ||
+             event.key === '-' ||
+             event.key === '*' ||
+             event.key === '/' ||
+             event.key === '.') {
+
+        display.value += event.key;
+    }
+
+   else if (event.key === '+') {
+        display.value += '+';
+    }
+
+   else if (event.key === 'Enter') {
+        display.value = eval(display.value);
+    }
+
+  else  if (event.key === 'Backspace') {
+        display.value = display.value.slice(0, -1);
+    }
+
+   else if (event.key === 'Escape') {
+        display.value = '';
+    }
+   else if (event.key === 's') {
+    display.value = Number(display.value) ** 2;
+}
+});
